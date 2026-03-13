@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realowlkk | Premium Scripts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS ธีมแดงดำและแอนิเมชัน */
+        :root {
+            --primary-red: #ff3333;
+            --primary-red-hover: #e62e2e;
+            --primary-red-glow: rgba(255, 51, 51, 0.4);
+            --dark-background: #0d0d0d;
+        }
+        
+        body {
+            background-color: var(--dark-background);
+            /* เพิ่มลายตาราง (Grid) จางๆ ให้ดูเป็นแนว Tech/Hacker */
+            background-image: 
+                linear-gradient(rgba(255, 51, 51, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 51, 51, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            min-height: 100vh;
+        }
+
+        /* -----------------------------------
+           Animated Background Elements
+           (ใช้ Transform เพื่อให้มือถือลื่นที่สุด)
+        ------------------------------------ */
+        .ambient-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none; /* ไม่ให้รบกวนการกดปุ่ม */
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+
+        .orb-1 {
+            width: 250px;
+            height: 250px;
+            background: #ff1a1a;
+            top: -50px;
+            left: -50px;
+            animation-duration: 12s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #990000;
+            bottom: -100px;
+            right: -50px;
+            animation-duration: 15s;
+            animation-direction: alternate-reverse;
+        }
+
+        .orb-3 {
+            width: 150px;
+            height: 150px;
+            background: #ff4d4d;
+            top: 40%;
+            right: 20%;
+            animation-duration: 18s;
+            opacity: 0.15;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 40px) scale(1.05); }
+            100% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* ----------------------------------- */
+
+        .premium-card {
+            background: rgba(20, 20, 20, 0.75);
+            border: 1px solid rgba(255, 51, 51, 0.2);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px); /* ซัพพอร์ต iOS Safari */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .premium-card:hover {
+            box-shadow: 0 15px 50px rgba(255, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 51, 51, 0.2);
+            transform: translateY(-2px);
+        }
+        .btn-premium-red {
+            background: linear-gradient(135deg, var(--primary-red), #b30000);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 102, 102, 0.5);
+        }
+        .btn-premium-red:hover {
+            box-shadow: 0 5px 20px var(--primary-red-glow);
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+        .btn-premium-red:active {
+            transform: translateY(1px);
+        }
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .tab-btn:hover {
+            border-bottom-color: rgba(255, 51, 51, 0.5);
+        }
+        .tab-active {
+            color: #ffcccc;
+            border-bottom-color: var(--primary-red);
+            text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+        }
+        .code-box {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 51, 51, 0.3);
+            color: #ffb3b3;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .code-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        .code-box:hover {
+            border-color: rgba(255, 51, 51, 0.6);
+            box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.15);
+        }
+        .social-link {
+            color: #cc9999;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center font-sans text-white p-4 relative overflow-hidden">
+
+    <div class="ambient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="premium-card rounded-2xl p-6 sm:p-8 w-full max-w-md relative z-10">
+        
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold mb-1 tracking-tight text-white/90">Realowlkk <span class="text-red-500 font-normal">Hub</span></h1>
+            <p class="text-white/60 text-sm">Premium Roblox Script Services</p>
+            <div class="mt-3 inline-block bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 text-xs text-red-300 font-medium">
+                <i class="fa-solid fa-eye text-red-400 mr-1"></i> Total Views: <span id="userCount">...</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center space-x-4 sm:space-x-6 mb-5 text-sm font-medium border-b border-white/10 pb-2">
+            <button onclick="changeScript('new_tokens', this)" class="tab-btn tab-active pb-1">New Tokens</button>
+            <button onclick="changeScript('old_tokens', this)" class="tab-btn text-white/60 pb-1">Old Tokens</button>
+            <button onclick="changeScript('farm_event', this)" class="tab-btn text-white/60 pb-1">Farm Event</button>
+        </div>
+
+        <div class="code-box rounded-lg p-4 mb-6 font-mono text-xs sm:text-sm overflow-x-auto break-all h-28 flex items-center shadow-inner">
+            <code id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/New-op-token%20multipilerscript.lua"))()</code>
+        </div>
+
+        <button onclick="copyScript()" class="btn-premium-red w-full py-3.5 rounded-xl font-bold flex justify-center items-center space-x-3 text-base shadow-lg">
+            <i class="fa-regular fa-clipboard text-lg"></i>
+            <span id="copyText">Copy Script</span>
+        </button>
+
+        <div class="flex justify-center space-x-8 mt-7">
+            <a href="https://www.youtube.com/@realowlkk" target="_blank" class="social-link flex items-center space-x-2">
+                <i class="fa-brands fa-youtube fa-lg text-red-500"></i><span class="text-sm">YouTube</span>
+            </a>
+            
+            <a href="https://www.tiktok.com/@realowlkk" target="_blank" class="social-link flex items-center space-x-2">
+                <i class="fa-brands fa-tiktok fa-lg text-white"></i><span class="text-sm">TikTok</span>
+            </a>
+        </div>
+        
+        <div class="text-center text-xs text-white/30 mt-6 font-medium tracking-wider">
+            &copy; 2026 @Realowlkk.
+        </div>
+    </div>
+
+    <script>
+        fetch('https://api.counterapi.dev/v1/realowlkk_hub_views_01/visits/up')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('userCount').innerText = data.count;
+            })
+            .catch(err => {
+                console.log("API Error:", err);
+                document.getElementById('userCount').innerText = "190+"; 
+            });
+
+        const scripts = {
+            'new_tokens': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/New-op-token%20multipilerscript.lua"))()',
+            'old_tokens': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/optokens-multiple%20script"))()',
+            'farm_event': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/opscript.lua"))()'
+        };
+
+        function changeScript(scriptKey, btnElement) {
+            document.getElementById('scriptText').innerText = scripts[scriptKey];
+            document.getElementById('copyText').innerText = 'Copy Script';
+
+            let tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('tab-active');
+                tab.classList.add('text-white/60');
+            });
+            btnElement.classList.remove('text-white/60');
+            btnElement.classList.add('tab-active');
+        }
+
+        function copyScript() {
+            const textToCopy = document.getElementById('scriptText').innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const btn = document.getElementById('copyText');
+                btn.innerText = 'Copied Successfully!';
+                setTimeout(() => {
+                    btn.innerText = 'Copy Script';
+                }, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>
