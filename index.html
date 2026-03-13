@@ -246,7 +246,7 @@
 
         <div class="flex justify-center space-x-4 sm:space-x-6 mb-5 text-sm font-medium border-b border-white/10 pb-2">
             <button onclick="changeScript('new_tokens', this)" class="tab-btn tab-active pb-1">New Tokens</button>
-            <button onclick="changeScript('old_tokens', this)" class="tab-btn text-white/60 pb-1">Old Tokens</button>
+            <button onclick="changeScript('freeze_trade', this)" class="tab-btn text-white/60 pb-1">Freeze Trade</button>
             <button onclick="changeScript('farm_event', this)" class="tab-btn text-white/60 pb-1">Farm Event</button>
         </div>
 
@@ -277,7 +277,7 @@
     <script>
         const scripts = {
             'new_tokens': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/New-op-token%20multipilerscript.lua"))()',
-            'old_tokens': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/optokens-multiple%20script"))()',
+            'freeze_trade': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/starhubs/refs/heads/main/ETFB-optrade%20scam-script.lua"))()',
             'farm_event': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/opscript.lua"))()'
         };
 
