@@ -5,6 +5,6 @@
   },
   {
     "name": "MM2 ESP + AIMBOT",
-    "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/mm2/refs/heads/main/murdermystery2/op%20espaimbotscript.lua'))()"
+    "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/mm2/refs/heads/main/murdermystery2/Esp%20and%20Aimbotscript.lua'))()"
   }
 ]
