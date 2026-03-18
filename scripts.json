@@ -4,7 +4,7 @@
     "content": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/mm2/refs/heads/main/murdermystery2/loader\"))()"
   },
   {
-    "name": "Freeze Trade",
-    "content": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/starhubs/refs/heads/main/ETFB-optrade%20scam-script.lua\"))()"
+    "name": "MM2 ESP + AIMBOT",
+    "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/mm2/refs/heads/main/murdermystery2/op%20espaimbotscript.lua'))()"
   }
 ]
