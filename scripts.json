@@ -1,6 +1,6 @@
 [
   {
-    "name": "New Tokens",
+    "name": "MM2 Aimbot",
     "content": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/New-op-token%20multipilerscript.lua\"))()"
   },
   {
