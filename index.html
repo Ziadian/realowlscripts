@@ -17,7 +17,6 @@
         
         body {
             background-color: var(--dark-background);
-            /* เพิ่มลายตาราง (Grid) จางๆ ให้ดูเป็นแนว Tech/Hacker */
             background-image: 
                 linear-gradient(rgba(255, 51, 51, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 51, 51, 0.03) 1px, transparent 1px);
@@ -25,9 +24,6 @@
             min-height: 100vh;
         }
 
-         /* -----------------------------------
-           Hacker Theme Animations
-        ------------------------------------ */
         .scanlines {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -38,13 +34,9 @@
             z-index: 0;
         }
 
-        /* แอนิเมชันวงกลมเรืองแสง */
         .ambient-orbs {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0; width: 100vw; height: 100vh;
             overflow: hidden;
             z-index: -1;
             pointer-events: none;
@@ -58,92 +50,21 @@
             animation: float 10s infinite ease-in-out alternate;
         }
 
-        .orb-1 {
-            width: 250px; height: 250px;
-            background: #ff1a1a;
-            top: -50px; left: -50px;
-            animation-duration: 12s;
-        }
-
-        .orb-2 {
-            width: 300px; height: 300px;
-            background: #990000;
-            bottom: -100px; right: -50px;
-            animation-duration: 15s;
-            animation-direction: alternate-reverse;
-        }
+        .orb-1 { width: 250px; height: 250px; background: #ff1a1a; top: -50px; left: -50px; animation-duration: 12s; }
+        .orb-2 { width: 300px; height: 300px; background: #990000; bottom: -100px; right: -50px; animation-duration: 15s; animation-direction: alternate-reverse; }
+        .orb-3 { width: 150px; height: 150px; background: #ff4d4d; top: 40%; right: 20%; animation-duration: 18s; opacity: 0.15; }
 
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
             50% { transform: translate(30px, 40px) scale(1.05); }
             100% { transform: translate(-20px, 20px) scale(0.95); }
         }
-
-        /* -----------------------------------
-           Animated Background Elements
-           (ใช้ Transform เพื่อให้มือถือลื่นที่สุด)
-        ------------------------------------ */
-        .ambient-orbs {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            z-index: -1;
-            pointer-events: none; /* ไม่ให้รบกวนการกดปุ่ม */
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            animation: float 10s infinite ease-in-out alternate;
-        }
-
-        .orb-1 {
-            width: 250px;
-            height: 250px;
-            background: #ff1a1a;
-            top: -50px;
-            left: -50px;
-            animation-duration: 12s;
-        }
-
-        .orb-2 {
-            width: 300px;
-            height: 300px;
-            background: #990000;
-            bottom: -100px;
-            right: -50px;
-            animation-duration: 15s;
-            animation-direction: alternate-reverse;
-        }
-
-        .orb-3 {
-            width: 150px;
-            height: 150px;
-            background: #ff4d4d;
-            top: 40%;
-            right: 20%;
-            animation-duration: 18s;
-            opacity: 0.15;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, 40px) scale(1.05); }
-            100% { transform: translate(-20px, 20px) scale(0.95); }
-        }
-
-        /* ----------------------------------- */
 
         .premium-card {
             background: rgba(20, 20, 20, 0.75);
             border: 1px solid rgba(255, 51, 51, 0.2);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px); /* ซัพพอร์ต iOS Safari */
+            -webkit-backdrop-filter: blur(16px);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
         }
@@ -164,16 +85,12 @@
             transform: translateY(-2px);
             filter: brightness(1.1);
         }
-        .btn-premium-red:active {
-            transform: translateY(1px);
-        }
+        .btn-premium-red:active { transform: translateY(1px); }
         .tab-btn {
             border-bottom: 2px solid transparent;
             transition: all 0.3s;
         }
-        .tab-btn:hover {
-            border-bottom-color: rgba(255, 51, 51, 0.5);
-        }
+        .tab-btn:hover { border-bottom-color: rgba(255, 51, 51, 0.5); }
         .tab-active {
             color: #ffcccc;
             border-bottom-color: var(--primary-red);
@@ -198,10 +115,7 @@
             border-color: rgba(255, 51, 51, 0.6);
             box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.15);
         }
-        .social-link {
-            color: #cc9999;
-            transition: all 0.3s;
-        }
+        .social-link { color: #cc9999; transition: all 0.3s; }
         .social-link:hover {
             color: white;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -217,27 +131,11 @@
         <div class="orb orb-3"></div>
     </div>
 
-    <div class="ambient-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="particle p-1"></div>
-        <div class="particle p-2"></div>
-        <div class="particle p-3"></div>
-        <div class="particle p-4"></div>
-        <div class="particle p-5"></div>
-    </div>
-
     <div class="premium-card rounded-2xl p-6 sm:p-8 w-full max-w-md relative z-10">
         
         <div class="text-center mb-6">
             <h1 class="text-3xl font-bold mb-1 tracking-tight text-white/90">Realowlkk <span class="text-red-500 font-normal">Hub</span></h1>
             <p class="text-white/60 text-sm">Premium Roblox Script Services</p>
-
-        <div class="ambient-orbs">
-            <div class="orb orb-1"></div>
-            <div class="orb orb-2"></div>
-        </div>
 
             <div class="mt-4 flex justify-center opacity-90 w-full">
                 <img src="https://hits.sh/realowlscripts.vercel.app.svg?style=for-the-badge&label=Total%20Views&color=ff3333&labelColor=1a1a1a" alt="Total Views" class="rounded-md shadow-[0_0_10px_rgba(255,51,51,0.2)] select-none pointer-events-none">
@@ -251,7 +149,7 @@
         </div>
 
         <div class="code-box rounded-lg p-4 mb-6 font-mono text-xs sm:text-sm overflow-x-auto break-all h-28 flex items-center shadow-inner">
-            <code id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/New-op-token%20multipilerscript.lua"))()</code>
+            <code id="scriptText">Loading script data...</code>
         </div>
 
         <button onclick="copyScript()" class="btn-premium-red w-full py-3.5 rounded-xl font-bold flex justify-center items-center space-x-3 text-base shadow-lg">
@@ -275,14 +173,27 @@
     </div>
 
     <script>
-        const scripts = {
-            'new_tokens': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/New-op-token%20multipilerscript.lua"))()',
-            'freeze_trade': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/starhubs/refs/heads/main/ETFB-optrade%20scam-script.lua"))()',
-            'farm_event': 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/opscript.lua"))()'
-        };
+        // สร้างตัวแปรเก็บสคริปต์
+        let scripts = {};
+
+        // ดึงข้อมูลจากไฟล์ scripts.json เมื่อเปิดเว็บ
+        fetch('scripts.json')
+            .then(response => response.json())
+            .then(data => {
+                scripts = data;
+                // เซ็ตค่าเริ่มต้นให้แสดง New Tokens
+                document.getElementById('scriptText').innerText = scripts['new_tokens'];
+            })
+            .catch(error => {
+                console.error('Error fetching scripts:', error);
+                document.getElementById('scriptText').innerText = 'Failed to load scripts. Please try again later.';
+            });
 
         function changeScript(scriptKey, btnElement) {
-            document.getElementById('scriptText').innerText = scripts[scriptKey];
+            // เช็คว่ามีข้อมูลโหลดมาหรือยัง
+            if (scripts[scriptKey]) {
+                document.getElementById('scriptText').innerText = scripts[scriptKey];
+            }
             document.getElementById('copyText').innerText = 'Copy Script';
 
             let tabs = document.querySelectorAll('.tab-btn');
@@ -296,6 +207,9 @@
 
         function copyScript() {
             const textToCopy = document.getElementById('scriptText').innerText;
+            // ป้องกันการก๊อปข้อความ Loading
+            if (textToCopy === 'Loading script data...' || textToCopy.includes('Failed')) return;
+
             navigator.clipboard.writeText(textToCopy).then(() => {
                 const btn = document.getElementById('copyText');
                 btn.innerText = 'Copied Successfully!';
@@ -305,6 +219,5 @@
             });
         }
     </script>
-
 </body>
 </html>
