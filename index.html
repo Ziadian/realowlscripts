@@ -24,16 +24,6 @@
             min-height: 100vh;
         }
 
-        .scanlines {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: repeating-linear-gradient(
-                0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 3px
-            );
-            pointer-events: none;
-            z-index: 0;
-        }
-
         .ambient-orbs {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -89,6 +79,7 @@
         .tab-btn {
             border-bottom: 2px solid transparent;
             transition: all 0.3s;
+            cursor: pointer;
         }
         .tab-btn:hover { border-bottom-color: rgba(255, 51, 51, 0.5); }
         .tab-active {
@@ -142,11 +133,8 @@
             </div>
         </div>
 
-        <div class="flex justify-center space-x-4 sm:space-x-6 mb-5 text-sm font-medium border-b border-white/10 pb-2">
-            <button onclick="changeScript('new_tokens', this)" class="tab-btn tab-active pb-1">New Tokens</button>
-            <button onclick="changeScript('freeze_trade', this)" class="tab-btn text-white/60 pb-1">Freeze Trade</button>
-            <button onclick="changeScript('farm_event', this)" class="tab-btn text-white/60 pb-1">Farm Event</button>
-        </div>
+        <div id="tabContainer" class="flex justify-center space-x-4 sm:space-x-6 mb-5 text-sm font-medium border-b border-white/10 pb-2 flex-wrap gap-y-2">
+            </div>
 
         <div class="code-box rounded-lg p-4 mb-6 font-mono text-xs sm:text-sm overflow-x-auto break-all h-28 flex items-center shadow-inner">
             <code id="scriptText">Loading script data...</code>
@@ -173,48 +161,70 @@
     </div>
 
     <script>
-        // สร้างตัวแปรเก็บสคริปต์
-        let scripts = {};
+        const tabContainer = document.getElementById('tabContainer');
+        const scriptTextElement = document.getElementById('scriptText');
+        const copyBtnText = document.getElementById('copyText');
 
-        // ดึงข้อมูลจากไฟล์ scripts.json เมื่อเปิดเว็บ
+        // ดึงข้อมูลจากไฟล์ scripts.json เพื่อมาสร้างปุ่ม
         fetch('scripts.json')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) throw new Error('Network response failed');
+                return response.json();
+            })
             .then(data => {
-                scripts = data;
-                // เซ็ตค่าเริ่มต้นให้แสดง New Tokens
-                document.getElementById('scriptText').innerText = scripts['new_tokens'];
+                tabContainer.innerHTML = ''; // ล้างค่าเผื่อไว้
+                
+                if (data.length === 0) {
+                    scriptTextElement.innerText = 'No scripts available.';
+                    return;
+                }
+
+                data.forEach((item, index) => {
+                    // สร้างปุ่ม
+                    const btn = document.createElement('button');
+                    btn.innerText = item.name;
+                    
+                    // ปุ่มแรกให้แสดงเป็นปุ่มที่ถูกเลือก (tab-active)
+                    if (index === 0) {
+                        btn.className = 'tab-btn tab-active pb-1';
+                        scriptTextElement.innerText = item.content; 
+                    } else {
+                        btn.className = 'tab-btn text-white/60 pb-1';
+                    }
+
+                    // ฟังก์ชันตอนกดปุ่ม
+                    btn.onclick = function() {
+                        scriptTextElement.innerText = item.content;
+                        copyBtnText.innerText = 'Copy Script';
+
+                        // ลบ class active จากทุกปุ่ม แล้วใส่ให้ปุ่มที่กด
+                        const allTabs = tabContainer.querySelectorAll('button');
+                        allTabs.forEach(t => {
+                            t.classList.remove('tab-active');
+                            t.classList.add('text-white/60');
+                        });
+                        this.classList.remove('text-white/60');
+                        this.classList.add('tab-active');
+                    };
+
+                    // เอาปุ่มไปใส่ในหน้าเว็บ
+                    tabContainer.appendChild(btn);
+                });
             })
             .catch(error => {
                 console.error('Error fetching scripts:', error);
-                document.getElementById('scriptText').innerText = 'Failed to load scripts. Please try again later.';
+                scriptTextElement.innerText = 'Error loading scripts. Please check scripts.json format.';
             });
 
-        function changeScript(scriptKey, btnElement) {
-            // เช็คว่ามีข้อมูลโหลดมาหรือยัง
-            if (scripts[scriptKey]) {
-                document.getElementById('scriptText').innerText = scripts[scriptKey];
-            }
-            document.getElementById('copyText').innerText = 'Copy Script';
-
-            let tabs = document.querySelectorAll('.tab-btn');
-            tabs.forEach(tab => {
-                tab.classList.remove('tab-active');
-                tab.classList.add('text-white/60');
-            });
-            btnElement.classList.remove('text-white/60');
-            btnElement.classList.add('tab-active');
-        }
-
+        // ฟังก์ชันก๊อปปี้
         function copyScript() {
-            const textToCopy = document.getElementById('scriptText').innerText;
-            // ป้องกันการก๊อปข้อความ Loading
-            if (textToCopy === 'Loading script data...' || textToCopy.includes('Failed')) return;
+            const textToCopy = scriptTextElement.innerText;
+            if (textToCopy.includes('Loading') || textToCopy.includes('Error') || textToCopy.includes('No scripts')) return;
 
             navigator.clipboard.writeText(textToCopy).then(() => {
-                const btn = document.getElementById('copyText');
-                btn.innerText = 'Copied Successfully!';
+                copyBtnText.innerText = 'Copied Successfully!';
                 setTimeout(() => {
-                    btn.innerText = 'Copy Script';
+                    copyBtnText.innerText = 'Copy Script';
                 }, 2000);
             });
         }
