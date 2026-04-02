@@ -1,7 +1,7 @@
 [
   {
-    "name": "MM2 PROJECT REVERSE",
-    "content": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Ziadian/mm2/refs/heads/main/murdermystery2/loader\"))()"
+    "name": "SAILOR PIECE STAR HUB",
+    "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/realowlscripts/refs/heads/main/op%20sailor-piece.lua'))()"
   },
   {
     "name": "MM2 ESP + AIMBOT",
