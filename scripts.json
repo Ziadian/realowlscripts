@@ -4,7 +4,7 @@
     "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/realowlscripts/refs/heads/main/op%20sailor-piece.lua'))()"
   },
   {
-    "name": "MM2 ESP + AIMBOT",
-    "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/mm2/refs/heads/main/murdermystery2/Esp%20and%20Aimbotscript.lua'))()"
+    "name": "SAILOR PIECE SPEED HUB",
+    "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/realowlscripts/refs/heads/main/spxspeed.lua'))()"
   }
 ]
