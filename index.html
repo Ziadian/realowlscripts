@@ -228,6 +228,22 @@
                 }, 2000);
             });
         }
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.onkeydown = function(e) {
+    if (e.keyCode == 123 || 
+        (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || 
+        (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+        return false;
+    }
+};
+
+        setInterval(() => {
+            console.clear();
+            console.log("%c⚠️ WARNING!", "color: red; font-size: 40px; font-weight: bold; text-shadow: 2px 2px 0 #000;");
+            console.log("%c - ", "color: #00ffff; font-size: 20px; background: #000; padding: 10px; border-radius: 5px;");
+        }, 1000);
     </script>
 </body>
 </html>
