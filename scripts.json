@@ -5,6 +5,6 @@
   },
   {
     "name": "GAG2 COLAHUB",
-    "content": ""
+    "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/realowlscripts/refs/heads/main/COLAHUBxGAG2'))()"
   }
 ]
