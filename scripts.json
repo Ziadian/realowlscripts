@@ -4,7 +4,7 @@
     "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/realowlscripts/refs/heads/main/opgag2'))()"
   },
   {
-    "name": "GAG2 COLAHUB",
-    "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/realowlscripts/refs/heads/main/COLAHUBxGAG2'))()"
+    "name": "NONE",
+    "content": ""
   }
 ]
