@@ -1,6 +1,6 @@
 [
   {
-    "name": "GROW A GARDEN 2 LUMIN",
+    "name": "GROW A GARDEN 2 DUPE",
     "content": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Ziadian/realowlscripts/refs/heads/main/opgag2petspawnerscript'))()"
   },
   {
